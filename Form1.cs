@@ -36,7 +36,6 @@ namespace GitClient
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -51,12 +50,16 @@ namespace GitClient
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            var tags = gs.GetTags(textBox1.Text);
+            richTextBox1.SelectionBullet = true;
+            richTextBox1.Text = string.Join("\n", tags);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var branches = gs.GetBranches(textBox1.Text);
+            richTextBox1.SelectionBullet = true;
+            richTextBox1.Text = string.Join("\n", branches);
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)

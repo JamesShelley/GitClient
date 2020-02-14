@@ -70,6 +70,11 @@ namespace GitClient.Services
                     tagList.Add(tag.FriendlyName + " " + tag.Target.Id);
                 }
 
+                if(tagList.Count == 0)
+                {
+                    tagList.Add("There are no associated tags in this repository.");
+                }
+
                 return tagList;
             }
         }
