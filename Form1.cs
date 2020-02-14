@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GitClient.Services;
-using LibGit2Sharp;
 
 namespace GitClient
 {
@@ -42,14 +34,18 @@ namespace GitClient
 
         public void button4_Click(object sender, EventArgs e)
         {
-          //  textBox2.ScrollBars = ScrollBars.Both;
-           // textBox2.WordWrap = false;
-
             var commits = gs.GetCommits(textBox1.Text);
             richTextBox1.SelectionBullet = true;
             richTextBox1.Text = string.Join("\n", commits);
             label3.Visible = true;
             label3.Text = "Commit Count: " + commits.Count;
+        }
+
+        public void button5_Click(object sender, EventArgs e)
+        {
+            var index = gs.GetRepoIndex(textBox1.Text);
+            richTextBox1.SelectionBullet = true;
+            richTextBox1.Text = string.Join("\n", index);
         }
 
         private void button3_Click(object sender, EventArgs e)

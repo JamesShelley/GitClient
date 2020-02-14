@@ -107,5 +107,30 @@ namespace GitClient.Services
             }
         }
 
+        public void MakeCommit(string repoLocation, string commitMessage, string authorName, string branchName)
+        {
+            
+        }
+
+        public List<string> GetRepoIndex(string repoLocation)
+        {
+            using (var repo = new Repository(@repoLocation))
+            {
+                var index = repo.Index;
+                List<string> indexList = new List<string>();
+                foreach (var i in index)
+                {
+                    indexList.Add("Blob: " + i.Id.ToString() + ", Path: " + i.Path + ", File Mode:" + i.Mode + ", Stage Number:" + i.StageLevel);
+                }
+
+                if (indexList.Count == 0)
+                {
+                    indexList.Add("No changes have been made");
+                }
+
+                return indexList;
+            }
+        }
+
     }
 }

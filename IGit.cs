@@ -14,5 +14,6 @@ namespace GitClient.Services
         Commit GetLatestCommit(string repoLocation);
         List<string> GetTags(string repoLocation);
         void CreateBranch(string repoLocation, string branchName);
+        List<string> GetRepoIndex(string repoLocation);
     }
 }
