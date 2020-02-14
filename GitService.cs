@@ -7,7 +7,10 @@ namespace GitClient.Services
     {
         public void InitRepository(string repoLocation)
         {
-            Repository.Init(@repoLocation);
+            if(!Repository.IsValid(repoLocation))
+            {
+                Repository.Init(@repoLocation);
+            } 
         }
 
         public List<string> GetBranches(string repoLocation)
