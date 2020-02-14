@@ -41,8 +41,12 @@ namespace GitClient
 
         public void button4_Click(object sender, EventArgs e)
         {
+          //  textBox2.ScrollBars = ScrollBars.Both;
+           // textBox2.WordWrap = false;
+
             var commits = gs.GetCommits(textBox1.Text);
-            textBox2.Text = commits.Count.ToString();
+            richTextBox1.SelectionBullet = true;
+            richTextBox1.Text = string.Join("\n", commits);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -51,6 +55,11 @@ namespace GitClient
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
