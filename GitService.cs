@@ -5,12 +5,18 @@ namespace GitClient.Services
 {
     public class GitService : IGit
     {
-        public void InitRepository(string repoLocation)
+        public string InitRepository(string repoLocation)
         {
+            string message;
             if(!Repository.IsValid(repoLocation))
             {
                 Repository.Init(@repoLocation);
-            } 
+                message = "Repo initialized successfully";
+            } else
+            {
+                message = "This is already a Git Repository.";
+            }
+            return message;
         }
 
         public List<string> GetBranches(string repoLocation)
@@ -24,6 +30,13 @@ namespace GitClient.Services
                 {
                     repoBranches.Add(branch.FriendlyName);
                 }
+
+                if (repoBranches.Count == 0)
+                {
+                    repoBranches.Add("There are no branches in this repository.");
+                }
+
+
                 return repoBranches;
             }
 
@@ -38,6 +51,11 @@ namespace GitClient.Services
                 foreach(var commit in commits)
                 {
                     repoCommits.Add(commit.Id.ToString() + " " + commit.MessageShort.ToString() + " " + commit.Author.ToString());
+                }
+
+                if (repoCommits.Count == 0)
+                {
+                    repoCommits.Add("No commits have been made in this repository.");
                 }
 
                 return repoCommits;

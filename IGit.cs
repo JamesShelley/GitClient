@@ -7,7 +7,7 @@ namespace GitClient.Services
 {
     public interface IGit 
     { 
-        void InitRepository(string repoLocation);
+        string InitRepository(string repoLocation);
         List<string> GetBranches(string repoLocation);
         List<string> GetCommits(string repoLocation);
         Commit FindCommit(string repoLocation, string commitId);

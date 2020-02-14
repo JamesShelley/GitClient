@@ -36,6 +36,8 @@ namespace GitClient
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            label2.Visible = true;
+            label2.Text = gs.InitRepository(textBox1.Text);
         }
 
         public void button4_Click(object sender, EventArgs e)
@@ -63,6 +65,11 @@ namespace GitClient
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
