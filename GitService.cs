@@ -36,7 +36,6 @@ namespace GitClient.Services
                     repoBranches.Add("There are no branches in this repository.");
                 }
 
-
                 return repoBranches;
             }
 
@@ -97,6 +96,14 @@ namespace GitClient.Services
                 }
 
                 return tagList;
+            }
+        }
+
+        public void CreateBranch(string repoLocation, string branchName)
+        {
+            using (var repo = new Repository(@repoLocation))
+            {
+                repo.CreateBranch(branchName);
             }
         }
 

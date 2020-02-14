@@ -48,6 +48,8 @@ namespace GitClient
             var commits = gs.GetCommits(textBox1.Text);
             richTextBox1.SelectionBullet = true;
             richTextBox1.Text = string.Join("\n", commits);
+            label3.Visible = true;
+            label3.Text = "Commit Count: " + commits.Count;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -55,6 +57,8 @@ namespace GitClient
             var tags = gs.GetTags(textBox1.Text);
             richTextBox1.SelectionBullet = true;
             richTextBox1.Text = string.Join("\n", tags);
+            label3.Visible = true;
+            label3.Text = "Tag Count: " + tags.Count;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,6 +66,8 @@ namespace GitClient
             var branches = gs.GetBranches(textBox1.Text);
             richTextBox1.SelectionBullet = true;
             richTextBox1.Text = string.Join("\n", branches);
+            label3.Visible = true;
+            label3.Text = "Branch Count: " + branches.Count;
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -70,6 +76,11 @@ namespace GitClient
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
