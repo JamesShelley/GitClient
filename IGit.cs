@@ -15,5 +15,7 @@ namespace GitClient.Services
         List<string> GetTags(string repoLocation);
         void CreateBranch(string repoLocation, string branchName);
         List<string> GetRepoIndex(string repoLocation);
+        List<string> GetStatus(string repoLocation); 
+
     }
 }

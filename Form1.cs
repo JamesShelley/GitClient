@@ -80,5 +80,12 @@ namespace GitClient
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var status = gs.GetStatus(textBox1.Text);
+            richTextBox1.SelectionBullet = true;
+            richTextBox1.Text = string.Join("\n", status);
+        }
     }
 }

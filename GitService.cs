@@ -1,4 +1,5 @@
 ﻿using LibGit2Sharp;
+using System;
 using System.Collections.Generic;
 
 namespace GitClient.Services
@@ -131,6 +132,31 @@ namespace GitClient.Services
                 return indexList;
             }
         }
+
+        public List<string> GetStatus(string repoLocation)
+        {
+            List<string> statusMessages = new List<string>();
+
+            using (var repo = new Repository(@repoLocation)) 
+            { 
+                foreach(var statusMessage in repo.RetrieveStatus(new StatusOptions()))
+                {
+                    statusMessages.Add("File: " + statusMessage.FilePath + " , State: " + statusMessage.State);
+                }
+            }
+
+            return statusMessages;
+        } 
+
+        /*
+        public void MakeCommit(string repoLocation,string message, Signature author, Signature committer, CommitOptions options)
+        {
+            using (var repo = new Repository(@repoLocation))
+            {
+                repo.Commit(message, author, committer, options);
+            }
+        }
+        */
 
     }
 }
